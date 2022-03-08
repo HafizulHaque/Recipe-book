@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ingredient } from 'src/app/shared/Ingredient.model';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingEditComponent implements OnInit {
 
-  constructor() { }
+  constructor(private slService: ShoppingListService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onIngredientAdd(ingName: string,  ingAmount: number){
+    this.slService.onIngredientAdded(new Ingredient(ingName, ingAmount));
   }
-
 }
