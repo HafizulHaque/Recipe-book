@@ -9,7 +9,9 @@ import { ShoppingListService } from '../shopping-list.service';
 })
 export class ShoppingEditComponent implements OnInit {
 
-  constructor(private slService: ShoppingListService) { }
+  constructor(
+    private slService: ShoppingListService
+  ) { }
 
   ngOnInit(): void {}
 
