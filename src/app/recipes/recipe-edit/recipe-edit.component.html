@@ -1,1 +1,68 @@
-<p>recipe-edit works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form>
+
+      <!-- buttons  -->
+      <div class="col-xs-12 mb-3">
+        <button type="submit" class="btn btn-success mx-2">Save</button>
+        <button type="button" class="btn btn-danger mx-2">Cancel</button>
+      </div>
+
+      <!-- recipe name  -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- image url  -->
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- recipe name  -->
+          <div class="form-group">
+            <label for="imgPath" class="form-label">Image URL</label>
+            <input type="text" id="imgPath" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- image preview  -->
+      <div class="row">
+        <div class="col-xs-12">
+          image preview will be here
+          <img src="" alt="" class="image-responsive">
+        </div>
+      </div>
+
+      <!-- recipe description  -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="desc" class="form-label">Description</label>
+            <textarea id="desc" class="form-control" rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- recipe ingredients field  -->
+      <div class="row">
+        <!-- ingredient name  -->
+        <div class="col-xs-8">
+          <input type="text" class="form-control">
+        </div>
+        <!-- ingredient amount  -->
+        <div class="col-xs-2">
+          <input type="number" class="form-control">
+        </div>
+        <!-- delete icon  -->
+        <div class="col-xs-2">
+          <button class="btn btn-danger" style="width: 100%;">X</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

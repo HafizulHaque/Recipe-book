@@ -29,4 +29,9 @@ export class ShoppingListComponent implements OnInit, OnDestroy{
     if(this.ingChangedSub) this.ingChangedSub.unsubscribe();
   }
 
+  onEditItem(index: number){
+    this.slService.startedEditing.next(index);
+    console.log(`form shopping-list: event raised with index: ${index}`)
+  }
+
 }
