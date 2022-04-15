@@ -11,3 +11,16 @@ img {
   max-width: 50%;
   margin: 0 auto 10px;
 }
+
+input.ng-invalid.ng-touched,
+input.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-dirty {
+  border: 1px solid red;
+}
+
+.error-text {
+  display: block;
+  margin: 4px 0;
+  color: red;
+}
