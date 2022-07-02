@@ -1,0 +1,20 @@
+{
+  "recipes": [
+    {
+      "name": "Raw Salad with Eggs",
+      "description": "Dietary supper",
+      "imagePath": "https://cdn.pixabay.com/photo/2016/06/12/08/34/thai-southern-food-1451577_960_720.jpg",
+      "ingredients": [
+        {
+          "name": "Egg",
+          "amount": 1
+        },
+        {
+          "name": "Carrot",
+          "amount": 1
+        }
+      ],
+      "id": 1
+    }
+  ]
+}
