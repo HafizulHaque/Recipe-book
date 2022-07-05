@@ -97,6 +97,8 @@ export class RecipeEditComponent implements OnInit, OnDestroy{
       ings
     )
 
+    console.log(recipeData);
+
     if(this.editMode){
       this.recipeService.updateRecipe(this.id, recipeData);
     }else{
