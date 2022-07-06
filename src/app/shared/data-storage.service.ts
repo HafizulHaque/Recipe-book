@@ -1,6 +1,8 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
 import { ComponentFactoryResolver, Injectable } from "@angular/core";
-import { map, tap } from "rxjs";
+import { exhaustMap, map, take, tap } from "rxjs";
+import { AuthService } from "../auth/auth.service";
+import { User } from "../auth/user.model";
 import { Recipe } from "../recipes/recipe.model";
 import { RecipeService } from "../recipes/recipe.service";
 
@@ -13,7 +15,8 @@ const API_BASE_URL = 'https://fir-angular-9492f-default-rtdb.asia-southeast1.fir
 export class DataStorageService {
   constructor(
     private http: HttpClient,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private authService: AuthService
   ){ }
 
   async storeRecipes(){
@@ -40,15 +43,23 @@ export class DataStorageService {
   }
 
   fetchRecipes(){
-    return this.http.get<Recipe[]>(API_BASE_URL)
-      .pipe(map(recipies => {
+    return this.authService.userSub.pipe(
+      take(1),
+      exhaustMap((user: User | null)=>{
+        let userToken : string = user ? user.token : '';
+        return this.http.get<Recipe[]>(API_BASE_URL);
+      }),
+      map(recipies => {
         let modifiedRecipies: Recipe[] = [];
         for(let recipe of recipies){
           modifiedRecipies.push({...recipe, ingredients: recipe.ingredients ? recipe.ingredients : [] })
         }
-        this.recipeService.setRecipes(modifiedRecipies)
         return modifiedRecipies;
-      }));
+      }),
+      tap(modRec => {
+        this.recipeService.setRecipes(modRec)
+      })
+    )
   }
 
 }
