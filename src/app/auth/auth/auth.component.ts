@@ -1,5 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, ComponentFactoryResolver, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
